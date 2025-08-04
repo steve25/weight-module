@@ -73,7 +73,7 @@ def send_to_api(weight: float):
     }
 
     try:
-        response = session.post(f"{API_URL}/weight", headers=headers, json=payload, timeout=5)
+        response = session.put(f"{API_URL}/weight", headers=headers, json=payload, timeout=5)
         logger.info(f"API odpoveď: {response.status_code} {response.text.strip()}")
     except requests.RequestException as e:
         logger.error(f"Chyba pri odosielaní na API: {e}")
